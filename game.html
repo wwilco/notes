@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+  </head>
+  <body>
+    <!-- <h2 id="my_number">your bumber:</h2>
+    <h2 id="computer_number">computer number:</h2>
+    <h2 id="outcome"></h2> -->
+
+    <script type="text/javascript">
+      var myGuess = prompt("pick number bw 0-3");
+      document.write("you guessed: " + myGuess + "<br>");
+
+      var computer = Math.floor(Math.random()*3)
+      document.write("computer number: " + computer + "<br>");
+
+      if (computer == myGuess) {
+        document.write("you win!");
+      } else {
+        document.write("try again!");
+      }
+    </script>
+  </body>
+</html>

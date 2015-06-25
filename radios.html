@@ -1,0 +1,68 @@
+<html>
+<style media="screen">
+  ul {
+    border:1px solid orange;
+  }
+</style>
+<body>
+<input type="checkbox" name="hamster">First<br>
+<input type="checkbox" name="hamster">Second<br>
+<input type="checkbox" name="hamster">Third<br>
+<button>UpdateHamsterManually</button><br>
+<img></img>
+<ul>
+</ul>
+
+<script charset="utf-8">
+  var urls = [
+    "one",
+    "two",
+    "three"
+  ];
+  var updateImage = function() {
+    var button = document.querySelector("button");
+    button.addEventListener("click", function(){
+      // var body = document.querySelector("body");
+      // var ul = document.createElement("ul");
+      // body.appendChild(ul);
+      // var li = document.createElement("li");
+      // ul.appendChild(li);
+      // var body = document.querySelector("body");
+      // var ul = document.querySelector("ul");
+      // var li = document.querySelectorAll("li");
+      // ul.removeChild(ul.li);
+      // body.removeChild(ul);
+      var radios = document.querySelectorAll("input");
+      for(var i=0; i<radios.length; i++) {
+        if (radios[i].checked === true) {
+          // replacedNode = parentNode.replaceChild(newChild, oldChild);
+
+          // body.appendChild(ulnew);
+          // var ul = document.querySelector("ul");
+          var li = document.createElement("li");
+          li.innerHTML = urls[i];
+
+          var body = document.querySelector("body");
+          var ulold = document.querySelector("ul");
+          var ulnew = document.createElement("ul");
+          ulnew.appendChild(li);
+          body.replaceChild(ulnew, ulold);
+
+
+        }
+      }
+    })
+  }
+  updateImage();
+  //part 2
+  // var button = document.querySelector("button");
+  // button.addEventListener("click", updateImage);
+
+  // //part 3
+  // var radios = document.querySelectorAll("input");
+  // for(var i=0; i<radios.length; i++) {
+  //   radios[i].addEventListener("click", updateImage);
+  // }
+</script>
+</body>
+</html>

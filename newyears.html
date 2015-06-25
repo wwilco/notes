@@ -1,0 +1,47 @@
+<html>
+<body>
+<canvas id = "myCanvas" width = "400" height = "400"></canvas>
+<script>
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+var clearBackground = function() {
+  ctx.fillStyle = "blue";
+  ctx.fillRect(0,0,canvas.width, canvas.height);
+}
+
+//not yet set
+var intervalID;
+var secondsCounted = 0;
+
+var draw = function() {
+  clearBackground();
+
+  var ballRadius = 50;
+  var x = canvas.width/2 - ballRadius;
+  var lastPosibleYPosition = canvas.width - ballRadius*2;
+  var y = secondsCounted*lastPosibleYPosition/10;
+
+  //the ctx.arc method needs the
+  //x,y of the center of the circle
+  var centerx = x + ballRadius;
+  var centery = y + ballRadius;
+
+  ctx.fillStyle = "magenta";
+  ctx.beginPath();
+  ctx.arc(centerx,centery,ballRadius,0,Math.PI*2,true);
+  ctx.fill();
+
+  secondsCounted++;
+  if (secondsCounted > 10) {
+    clearInterval(intervalID);
+  }
+}
+
+draw();
+var intervalID = setInterval(draw, 1000);
+
+</script>
+</body>
+</html>
